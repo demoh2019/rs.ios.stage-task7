@@ -6,11 +6,12 @@
 //
 
 #import "LoadingView.h"
+#import "ButtonExtension.h"
 
 @interface LoadingView ()
 @property (weak, nonatomic) IBOutlet UITextField *login;
 @property (weak, nonatomic) IBOutlet UITextField *password;
-@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet ButtonExtension *button;
 @property (weak, nonatomic) IBOutlet UIButton *second;
 @property (weak, nonatomic) IBOutlet UIButton *two;
 @property (weak, nonatomic) IBOutlet UIButton *three;
@@ -34,12 +35,6 @@
     
     [self fieldsView:_login second:@"default"];
     [self fieldsView:_password second:@"default"];
-    
-    [_button.layer setBorderColor:[[UIColor alloc] initWithRed:128/255.f green:164/255.f blue:237/255.f alpha:1].CGColor];
-    _button.layer.borderWidth=2.0;
-    _button.layer.cornerRadius = 10;
-    [_button setImage:[UIImage imageNamed:@"person"] forState:UIControlStateNormal];
-    [_button setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
 }
 
 -(void)buttonView:(UIButton *)fields{
@@ -104,13 +99,65 @@
         [_password setEnabled:NO];
         [_button setEnabled:NO];
         [_radius setHidden:NO];
-        _radius.layer.borderWidth = 2.0;
+        [_login setAlpha:0.5];
+        [_password setAlpha:0.5];
+        [_button setAlpha:0.5];
     }
 }
 - (IBAction)tappedNumber:(UIButton*)sender {
-    [_number.text stringByAppendingString:sender.currentTitle];
+    if ([[_number text]  isEqual: @"_"]){
+        _number.text = @"";
+    }
+    [_number setText:[_number.text stringByAppendingString:sender.currentTitle]];
+    
+    if ([_number.text length] == 3){
+        [self chekedPin];
+    }
 }
 
+-(void)chekedPin{
+    if([[_number text]  isEqual: @"132"]){
+        _radius.layer.borderWidth = 2;
+        _radius.layer.borderColor = [self getColor:@"ok"];
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Welcome"
+                                       message:@"You are successfuly authorized."
+                                       preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Refresh" style:UIAlertActionStyleDestructive
+            handler:^(UIAlertAction * action) {[self restart];}];
+
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }else{
+        [self error];
+    }
+}
+
+-(void)restart{
+    _radius.layer.borderWidth = 0;
+    _radius.hidden=YES;
+    [_login setEnabled:YES];
+    [_password setEnabled:YES];
+    [_button setEnabled:YES];
+    [_radius setHidden:YES];
+    [_login setAlpha:1];
+    [_password setAlpha:1];
+    [_button setAlpha:1];
+    _login.text = @"";
+    _password.text = @"";
+    _number.text = @"_";
+    [self fieldsView:_login second:@"default"];
+    [self fieldsView:_password second:@"default"];
+}
+
+-(void)error{
+    _radius.layer.borderWidth = 2;
+    _radius.layer.borderColor = [self getColor:@"error"];
+    _number.text = @"_";
+}
+- (IBAction)numerTapped:(id)sender {
+    _radius.layer.borderWidth = 0;
+}
 
 /*
 #pragma mark - Navigation

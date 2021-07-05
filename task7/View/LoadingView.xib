@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingView">
             <connections>
-                <outlet property="button" destination="tW0-Nk-v6V" id="vq0-HD-GXJ"/>
+                <outlet property="button" destination="tW0-Nk-v6V" id="M8e-q1-rr7"/>
                 <outlet property="login" destination="b4Q-ww-nL9" id="USv-zz-R4E"/>
                 <outlet property="number" destination="ylg-e1-ESp" id="JeJ-sn-Gz0"/>
                 <outlet property="password" destination="xEE-0w-rsf" id="4Dd-ax-8vG"/>
@@ -53,8 +53,11 @@
                     <rect key="frame" x="35" y="267" width="344" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <connections>
+                        <action selector="editingChanged:" destination="-1" eventType="editingChanged" id="7a2-j2-Z7Q"/>
+                    </connections>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tW0-Nk-v6V">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tW0-Nk-v6V" customClass="ButtonExtension">
                     <rect key="frame" x="129" y="361" width="156" height="42"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="715-VQ-vmr"/>
@@ -78,7 +81,8 @@
                             <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="24"/>
                             <state key="normal" title="1"/>
                             <connections>
-                                <action selector="tappedNumber:" destination="-1" eventType="touchUpInside" id="reH-zY-FSH"/>
+                                <action selector="numerTapped:" destination="-1" eventType="touchUpInside" id="K6Q-Pe-pqw"/>
+                                <action selector="tappedNumber:" destination="-1" eventType="touchUpInside" id="NlE-iq-Xvk"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJL-LX-xXm">
@@ -90,6 +94,7 @@
                             <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="24"/>
                             <state key="normal" title="2"/>
                             <connections>
+                                <action selector="numerTapped:" destination="-1" eventType="touchUpInside" id="RKR-2z-3rg"/>
                                 <action selector="tappedNumber:" destination="-1" eventType="touchUpInside" id="Gi8-vK-fyK"/>
                             </connections>
                         </button>
@@ -101,9 +106,13 @@
                             </constraints>
                             <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="24"/>
                             <state key="normal" title="3"/>
+                            <connections>
+                                <action selector="numerTapped:" destination="-1" eventType="touchUpInside" id="neC-mI-d8B"/>
+                                <action selector="tappedNumber:" destination="-1" eventType="touchUpInside" id="ZLG-wg-DCp"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylg-e1-ESp">
-                            <rect key="frame" x="114.33333333333334" y="15.000000000000002" width="11.333333333333329" height="21.666666666666671"/>
+                            <rect key="frame" x="114.33333333333334" y="15" width="11.333333333333329" height="21"/>
                             <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

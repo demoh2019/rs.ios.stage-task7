@@ -15,6 +15,7 @@
 		4762B9DA2691E35500445E4A /* task7UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9D92691E35500445E4A /* task7UITests.m */; };
 		4762B9EA2691E47200445E4A /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9E92691E47200445E4A /* LoadingView.m */; };
 		4762B9EC2691E48500445E4A /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4762B9EB2691E48400445E4A /* LoadingView.xib */; };
+		47C76AB7269360C600F596C9 /* ButtonExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C76AB6269360C600F596C9 /* ButtonExtension.m */; };
 		846A199726933CF9006A907D /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 846A199326933CDD006A907D /* SF-Pro-Text-Bold.otf */; };
 		846A199B26933CFC006A907D /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 846A199226933CD9006A907D /* SF-Pro-Text-Semibold.otf */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,8 @@
 		4762B9E82691E47200445E4A /* LoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		4762B9E92691E47200445E4A /* LoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		4762B9EB2691E48400445E4A /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		47C76AB5269360C600F596C9 /* ButtonExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonExtension.h; sourceTree = "<group>"; };
+		47C76AB6269360C600F596C9 /* ButtonExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonExtension.m; sourceTree = "<group>"; };
 		846A199226933CD9006A907D /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		846A199326933CDD006A907D /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +108,7 @@
 		4762B9B12691E34E00445E4A /* task7 */ = {
 			isa = PBXGroup;
 			children = (
+				47C76AB426935FC900F596C9 /* Extension */,
 				47C76A8F26932B2900F596C9 /* Font */,
 				4762B9E72691E43E00445E4A /* View */,
 				4762B9B22691E34E00445E4A /* AppDelegate.h */,
@@ -152,6 +156,15 @@
 				846A199226933CD9006A907D /* SF-Pro-Text-Semibold.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		47C76AB426935FC900F596C9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				47C76AB5269360C600F596C9 /* ButtonExtension.h */,
+				47C76AB6269360C600F596C9 /* ButtonExtension.m */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4762B9B42691E34E00445E4A /* AppDelegate.m in Sources */,
+				47C76AB7269360C600F596C9 /* ButtonExtension.m in Sources */,
 				4762B9EA2691E47200445E4A /* LoadingView.m in Sources */,
 				4762B9C52691E35500445E4A /* main.m in Sources */,
 			);
