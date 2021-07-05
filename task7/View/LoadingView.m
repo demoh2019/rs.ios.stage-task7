@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *two;
 @property (weak, nonatomic) IBOutlet UIButton *three;
 @property (weak, nonatomic) IBOutlet UIView *radius;
+@property (weak, nonatomic) IBOutlet UILabel *number;
 
 @end
 
@@ -23,8 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self tappedView];
-    _radius.layer.borderColor = [self getColor: @"ok"];
-    _radius.layer.borderWidth = 2.0;
+    _radius.layer.borderWidth = 0;
     _radius.layer.cornerRadius = 10;
     
     [self buttonView:_second];
@@ -39,6 +39,7 @@
     _button.layer.borderWidth=2.0;
     _button.layer.cornerRadius = 10;
     [_button setImage:[UIImage imageNamed:@"person"] forState:UIControlStateNormal];
+    [_button setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
 }
 
 -(void)buttonView:(UIButton *)fields{
@@ -103,8 +104,13 @@
         [_password setEnabled:NO];
         [_button setEnabled:NO];
         [_radius setHidden:NO];
+        _radius.layer.borderWidth = 2.0;
     }
 }
+- (IBAction)tappedNumber:(UIButton*)sender {
+    [_number.text stringByAppendingString:sender.currentTitle];
+}
+
 
 /*
 #pragma mark - Navigation

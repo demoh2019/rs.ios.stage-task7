@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Bold.otf">
+            <string>SFProText-Bold</string>
+        </array>
+        <array key="SF-Pro-Text-Semibold.otf">
+            <string>SFProText-Semibold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingView">
             <connections>
                 <outlet property="button" destination="tW0-Nk-v6V" id="vq0-HD-GXJ"/>
                 <outlet property="login" destination="b4Q-ww-nL9" id="USv-zz-R4E"/>
+                <outlet property="number" destination="ylg-e1-ESp" id="JeJ-sn-Gz0"/>
                 <outlet property="password" destination="xEE-0w-rsf" id="4Dd-ax-8vG"/>
-                <outlet property="radius" destination="yW8-eW-dIT" id="9zD-jV-1dv"/>
+                <outlet property="radius" destination="yW8-eW-dIT" id="D1T-yA-2VN"/>
                 <outlet property="second" destination="Zp4-AU-Dc5" id="CdP-vP-yTS"/>
                 <outlet property="three" destination="c8d-54-LXs" id="moR-GR-ocb"/>
                 <outlet property="two" destination="CJL-LX-xXm" id="Alo-Vz-ovF"/>
@@ -27,8 +36,8 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSSchool" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsr-zC-8Is">
-                    <rect key="frame" x="126.00000000000001" y="80" width="162.33333333333337" height="43"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                    <rect key="frame" x="120.66666666666669" y="80" width="173" height="43"/>
+                    <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="36"/>
                     <nil key="textColor"/>
                     <color key="highlightedColor" systemColor="labelColor"/>
                 </label>
@@ -51,12 +60,13 @@
                         <constraint firstAttribute="height" constant="42" id="715-VQ-vmr"/>
                         <constraint firstAttribute="width" constant="156" id="kQW-b7-gre"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="20"/>
                     <state key="normal" title="Authorize"/>
                     <connections>
                         <action selector="AuthorizeTapped:" destination="-1" eventType="touchUpInside" id="Om2-DX-uP9"/>
                     </connections>
                 </button>
-                <view contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yW8-eW-dIT">
+                <view hidden="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yW8-eW-dIT">
                     <rect key="frame" x="87" y="576" width="240" height="110"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zp4-AU-Dc5">
@@ -65,7 +75,11 @@
                                 <constraint firstAttribute="height" constant="50" id="cvp-L4-VYp"/>
                                 <constraint firstAttribute="width" constant="50" id="tzW-jc-1kM"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="24"/>
                             <state key="normal" title="1"/>
+                            <connections>
+                                <action selector="tappedNumber:" destination="-1" eventType="touchUpInside" id="reH-zY-FSH"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJL-LX-xXm">
                             <rect key="frame" x="95" y="45" width="50" height="50"/>
@@ -73,7 +87,11 @@
                                 <constraint firstAttribute="width" constant="50" id="6ZE-cX-gO6"/>
                                 <constraint firstAttribute="height" constant="50" id="nMQ-d7-0ak"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="24"/>
                             <state key="normal" title="2"/>
+                            <connections>
+                                <action selector="tappedNumber:" destination="-1" eventType="touchUpInside" id="Gi8-vK-fyK"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8d-54-LXs">
                             <rect key="frame" x="165" y="45" width="50" height="50"/>
@@ -81,11 +99,12 @@
                                 <constraint firstAttribute="height" constant="50" id="qbw-Ca-1Du"/>
                                 <constraint firstAttribute="width" constant="50" id="szM-ie-mTr"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="24"/>
                             <state key="normal" title="3"/>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylg-e1-ESp">
-                            <rect key="frame" x="105" y="15" width="30" height="22"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylg-e1-ESp">
+                            <rect key="frame" x="114.33333333333334" y="15.000000000000002" width="11.333333333333329" height="21.666666666666671"/>
+                            <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
