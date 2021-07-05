@@ -24,7 +24,7 @@
     [super viewDidLoad];
     [self tappedView];
     _radius.layer.borderColor = [self getColor: @"ok"];
-    _radius.layer.borderWidth = 1.0;
+    _radius.layer.borderWidth = 2.0;
     _radius.layer.cornerRadius = 10;
     
     [self buttonView:_second];
